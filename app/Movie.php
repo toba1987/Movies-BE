@@ -30,4 +30,8 @@ class Movie extends Model
         'additional_data' => 'array'
     ];
     */
+
+    public static function search($value){
+        return self::where('name', 'like', "%$value%")->get();
+    }
 }

@@ -15,7 +15,8 @@ class MovieController extends Controller
      */
     public function index(Request $request)
     {
-        return Movie::where('name', 'like', "%$request->name%")->get();
+        $term = $request->has('term') ? $request->term : '';
+        return Movie::search($term);
     }
 
     /**
