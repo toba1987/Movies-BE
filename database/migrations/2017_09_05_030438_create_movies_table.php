@@ -21,7 +21,6 @@ class CreateMoviesTable extends Migration
             $table->integer('duration');
             $table->date('releaseDate');
             $table->text('genres');
-
             $table->timestamps();
         });
     }
