@@ -15,8 +15,14 @@ class MovieController extends Controller
      */
     public function index(Request $request)
     {
-        $term = $request->has('term') ? $request->term : '';
-        return Movie::search($term);
+
+        $take = $request->has('take') ? $request->take : 5;
+        $skip = $request->has('skip') ? $request->skip : 0;
+        $name = $request->has('term') ? $request->term : '';
+
+        return Movie::search($name, $take, $skip);
+
+        //  return Movie::search(request('name', ''), request('take', 5), request('skip', 0));
     }
 
     /**

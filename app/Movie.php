@@ -31,7 +31,13 @@ class Movie extends Model
     ];
     */
 
-    public static function search($value){
-        return self::where('name', 'like', "%$value%")->get();
+    public static function search($name, $take, $skip) {
+
+       // return self::where('name', 'like', "%$value%")->get();
+        return self::where('name', 'LIKE', "%$name%")
+                   ->skip($skip)
+                    ->take($take)
+                   ->get();
+       // $users = DB::table('users')->skip(10)->take(5)->get();
     }
 }
